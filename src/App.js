@@ -2,7 +2,6 @@ import {React, useState} from "react";
 import { Route, Link, Switch } from "react-router-dom";
 import "./App.css";
 import * as yup from "yup";
-import axios from "axios";
 
 const initialState = {
   name: "",
@@ -98,7 +97,12 @@ const changeHandler = (e) => {
             </label>
             <label>
               Size:
-              <input type="dropdown" id="size-dropdown" name="size"/>
+              <select onChange={changeHandler} id="size-dropdown" name="size">
+                <option value="">Select</option>
+                <option value="ittybittyteeny">ittybittyteeny</option>
+                <option value="ittybitty">ittybitty</option>
+                <option value="itty">itty</option>
+              </select>
             </label>
             <label>
               Topping 1:
@@ -120,7 +124,7 @@ const changeHandler = (e) => {
               Special Instructions:
               <input type="text" id="special-text" name="text"/>
             </label>
-              <button type="submit" id="order-button">Submit</button>
+            <button type="submit" id="order-button">Submit</button>
           </form>
         </Route>
       </Switch>
